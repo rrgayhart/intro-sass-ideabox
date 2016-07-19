@@ -19,8 +19,24 @@
     </section>
     <section class="main-content">
       <input type="text" class="search-input" placeholder="Search">
-      <article class="new-idea-area">
-      </article>
+<!-- Changed below to div so we can add articles, each article will be a content card  -->
+      <div class="new-idea-area">
+        <article class="idea-card">
+          <h2 class = "idea-title">Example Idea 1</h2>
+          <button type="button" class="delete-button"></button>
+          <p class = "idea-body">
+            Lorem ipsum something taco banana porcupine pancake spectacles javascript.
+          </p>
+          <div class="ranking-container">
+            <button type="button" class="upvote-button"></button>
+            <button type="button" class="downvote-button"></button>
+            <aside class="current-ranking">
+              ranking: 
+            </aside>
+          </div>
+        </article>
+<!-- End of temporary content placeholder -->
+      </div>
     </section>
   	<script src="jquery.js" charset="UTF-8"></script>
   	<script src="script.js" charset="UTF-8"></script>
