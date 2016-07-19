@@ -1,15 +1,29 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+h1, h2 {
+  font-family: 'Roboto Slab', serif;
+}
+
 /* I am temporarily storing the below HTML simply for my reference for class names */
 
 /*<div class="new-idea-area">
   <article class="idea-card">
     <h2 class = "idea-title">Example Idea 1</h2>
-    <button type="button" class="delete-button"></button>
+    <input type="image" src="images/delete.svg" class="image delete-button">
     <p class = "idea-body">
       Lorem ipsum something taco banana porcupine pancake spectacles javascript.
     </p>
     <div class="ranking-container">
-      <button type="button" class="upvote-button"></button>
-      <button type="button" class="downvote-button"></button>
+      <input type="image" src="images/upvote.svg" class="image upvote-button">
+      <input type="image" src="images/downvote.svg"class="image downvote-button">
       <aside class="current-ranking">
         ranking:
       </aside>
@@ -18,4 +32,23 @@
 
   /*Below is the styling for idea content cards*/
 
-  
+  .image {
+    height: 30px;
+    width: 30px;
+  }
+
+  .new-idea-area {
+    background-color: gray;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+  }
+
+  .idea-card {
+    background-color: pink;
+    margin: 5px;
+  }
+
+  .ranking-container {
+    display: flex;
+  }
