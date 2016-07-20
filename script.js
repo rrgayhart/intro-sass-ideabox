@@ -24,7 +24,7 @@ function Idea (title, body) {
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-	return newIdea;
+	localStorage.setItem('saveIdea', JSON.stringify(newIdea));
 });
 
 // These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
