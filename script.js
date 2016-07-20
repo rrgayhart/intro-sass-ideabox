@@ -8,11 +8,11 @@ var $bodyInput = $('.body-input');
 var ideasAll = [];
 
 // Work on constructor for a new Idea
-function Idea (title, body) {
+function Idea (title, body, id, quality) {
   this.title = title;
   this.body = body;
-  this.id = Date.now();
-  this.quality = 'swill';
+  this.id = id || Date.now();
+  this.quality = quality || 'swill';
 }
 
 function clearInputFields () {
@@ -24,13 +24,11 @@ function clearInputFields () {
 var Ideas = {
 	addIdea: function(newIdea) {
 		ideasAll.push(newIdea);
-		localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
+		localStorage.setItem('ideasAll', JSON.stringify(ideasAll));
 	}
 }
 // Idea.prototype. = ;
 // Saving and retrieving ideas
-
-// How do I work with a bunch of ideas? ideasAll
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
@@ -44,6 +42,19 @@ $saveButton.on('click', function() {
 // These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
 // TODO: Refactor these into less code.
 $(document).ready(function(){
+
+	//read local storage
+	//set ideas > array to value of ideasAll > localStorage
+	// function initialize () {
+		var ideasFromStorage = localStorage.getItem('ideasAll') || '[]';
+		var ideasAsObjects = JSON.parse(ideasFromStorage);
+		ideasAll = ideasAsObjects.map(function(obj) {
+			return new Idea(obj.title, obj.body, obj.id, obj.quality)
+		});
+	// };
+
+	//render ideasAll to the DOM possibly use .map again?
+	//possibly for loop to append the elements
 
 	$deleteButton.hover(function() {
 		$(this).attr("src","images/delete-hover.svg");
