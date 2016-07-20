@@ -1,5 +1,3 @@
-
-
 //Variables
 var $saveButton = $('.save-button');
 var $deleteButton = $('.delete-button');
@@ -15,6 +13,11 @@ function Idea (title, body) {
   this.body = body;
   this.id = Date.now();
   this.quality = 'swill';
+}
+
+function clearInputFields () {
+	$titleInput.val("");
+	$bodyInput.val("");
 }
 
 //Contructor to perform actions on the ideas
@@ -35,6 +38,7 @@ $saveButton.on('click', function() {
 	// ideasAll.push(newIdea);
 	// localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
 	Ideas.addIdea(newIdea);
+	clearInputFields();
 });
 
 // These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
