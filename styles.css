@@ -8,7 +8,7 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
 }
-h1, h2 {
+h1, h2, span {
   font-family: 'Roboto Slab', serif;
 }
 
@@ -32,23 +32,44 @@ h1, h2 {
 
   /*Below is the styling for idea content cards*/
 
-  .image {
-    height: 30px;
-    width: 30px;
-  }
+.image {
+  height: 30px;
+  width: 30px;
+}
 
-  .new-idea-area {
-    background-color: gray;
-    display: flex;
-    height: 200px;
-    justify-content: center;
-  }
+.new-idea-area {
+  background-color: gray;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
 
-  .idea-card {
-    background-color: pink;
-    margin: 5px;
-  }
+.idea-card {
+  background-color: pink;
+  border-bottom: 2px solid #D1D3D4;
+  margin: 5px;
+  max-width: 60%;
+}
 
-  .ranking-container {
-    display: flex;
-  }
+.ranking-container {
+  display: flex;
+}
+
+.delete-button {
+  float: right;
+  margin-right: 55px;
+  margin-top: -40px;
+}
+
+.idea-title {
+  margin: 20px;
+}
+
+.idea-body {
+  margin: 40px 20px;
+}
+
+.upvote-button,
+.current-ranking {
+  margin: 0 20px;
+}
