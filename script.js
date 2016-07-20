@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
 
 //Variables
 var $saveButton = $('.save-button');
@@ -17,6 +17,13 @@ function Idea (title, body) {
   this.quality = 'swill';
 }
 
+//Contructor to perform actions on the ideas
+var Ideas = {
+	addIdea: function(newIdea) {
+		ideasAll.push(newIdea);
+		localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
+	}
+}
 // Idea.prototype. = ;
 // Saving and retrieving ideas
 
@@ -25,12 +32,14 @@ function Idea (title, body) {
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-	localStorage.setItem('saveIdea', JSON.stringify(newIdea));
-	ideasAll.push(newIdea);
+	// ideasAll.push(newIdea);
+	// localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
+	Ideas.addIdea(newIdea);
 });
 
 // These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
 // TODO: Refactor these into less code.
+$(document).ready(function(){
 
 	$deleteButton.hover(function() {
 		$(this).attr("src","images/delete-hover.svg");
