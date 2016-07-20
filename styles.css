@@ -1,0 +1,65 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/* Whole page fonts per comp */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+h1, h2, span {
+  font-family: 'Roboto Slab', serif;
+}
+
+  /*Below is the styling for idea content cards*/
+
+.image {
+  height: 30px;
+  width: 30px;
+}
+
+.new-idea-area {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+
+.idea-card {
+  border-bottom: 2px solid #D1D3D4;
+  margin: 5px 0;
+  max-width: 55%;
+}
+
+.quality-container {
+  display: flex;
+}
+
+.delete-button {
+  float: right;
+  margin-right: 5px;
+  margin-top: -40px;
+}
+
+.idea-title {
+  margin: 20px 0;
+}
+
+.idea-title,
+.current-quality {
+  color: #6D6E71;
+
+}
+
+.idea-body {
+  color: #939598;
+  margin: 40px 0;
+}
+
+.downvote-button {
+  margin-left: 20px;
+}
+.current-quality {
+  margin: 0 20px;
+}
