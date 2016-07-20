@@ -7,6 +7,7 @@ var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
+var ideasAll = [];
 
 // Work on constructor for a new Idea
 function Idea (title, body) {
@@ -25,6 +26,7 @@ function Idea (title, body) {
 $saveButton.on('click', function() {
 	var newIdea = new Idea($titleInput.val(), $bodyInput.val());
 	localStorage.setItem('saveIdea', JSON.stringify(newIdea));
+	ideasAll.push(newIdea);
 });
 
 // These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
