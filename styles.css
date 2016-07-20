@@ -56,12 +56,6 @@ h1 {
   margin-right: 280px;*/
 }
 
-.search-input {
-/*
-  margin-top: 20px;
-  max-width: 100%;*/
-  /*align-content: center;*/
-}
 
 .new-idea-area {
   display: flex;
@@ -82,13 +76,11 @@ h1 {
   color: #FFFFFF;
   background-color: #045E55;
 }
-
-/*.search-input {
-  margin-left: 280px;
-  margin-right: 280px;
-}*/
-
-
+.search-input {
+  /*margin-top: 20px;*/
+  width: 55%;
+  /*align-content: center;*/
+}
 .idea-card {
   border-bottom: 2px solid #D1D3D4;
   margin: 5px 0;
