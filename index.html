@@ -12,16 +12,18 @@
   </head>
 
   <body>
-    <section class="input-area">
-      <h1><span class="title-span">idea</span>box</h1>
-      <input type="text" class="title-input" placeholder="Title">
-      <input type="text" class="body-input" placeholder="Body">
-      <button class="save-button">Save</button>
-    </section>
-    <section class="main-content">
-      <input type="text" class="search-input" placeholder="Search">
+    <div class="input-container">
+      <section class="input-area">
+        <h1><span class="title-span">idea</span>box</h1>
+        <input type="text" class="text-input title-input" placeholder="Title">
+        <input type="text" class="text-input body-input" placeholder="Body">
+        <button class="save-button">Save</button>
+      </section>
+
+    </div>
 <!-- Changed below to div so we can add articles, each article will be a content card  -->
-      <div class="new-idea-area">
+      <section class="new-idea-area">
+        <input type="text" class="text-input search-input" placeholder="Search">
         <article class="idea-card">
           <h2 class = "idea-title">Example Idea 1</h2>
           <input type="image" src="images/delete.svg" class="image delete-button">
@@ -36,9 +38,8 @@
             </aside>
           </div>
         </article>
-      </div>
+      </section>
 <!-- End of temporary content placeholder -->
-    </section>
   	<script src="jquery.js" charset="UTF-8"></script>
   	<script src="script.js" charset="UTF-8"></script>
   </body>
