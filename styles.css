@@ -4,6 +4,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+/* Whole page fonts per comp */
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -11,24 +12,6 @@ body {
 h1, h2, span {
   font-family: 'Roboto Slab', serif;
 }
-
-/* I am temporarily storing the below HTML simply for my reference for class names */
-
-/*<div class="new-idea-area">
-  <article class="idea-card">
-    <h2 class = "idea-title">Example Idea 1</h2>
-    <input type="image" src="images/delete.svg" class="image delete-button">
-    <p class = "idea-body">
-      Lorem ipsum something taco banana porcupine pancake spectacles javascript.
-    </p>
-    <div class="ranking-container">
-      <input type="image" src="images/upvote.svg" class="image upvote-button">
-      <input type="image" src="images/downvote.svg"class="image downvote-button">
-      <aside class="current-ranking">
-        ranking:
-      </aside>
-    </div>
-  </article>*/
 
   /*Below is the styling for idea content cards*/
 
@@ -38,38 +21,45 @@ h1, h2, span {
 }
 
 .new-idea-area {
-  background-color: gray;
   display: flex;
   height: 200px;
   justify-content: center;
 }
 
 .idea-card {
-  background-color: pink;
   border-bottom: 2px solid #D1D3D4;
-  margin: 5px;
-  max-width: 60%;
+  margin: 5px 0;
+  max-width: 55%;
 }
 
-.ranking-container {
+.quality-container {
   display: flex;
 }
 
 .delete-button {
   float: right;
-  margin-right: 55px;
+  margin-right: 5px;
   margin-top: -40px;
 }
 
 .idea-title {
-  margin: 20px;
+  margin: 20px 0;
+}
+
+.idea-title,
+.current-quality {
+  color: #6D6E71;
+
 }
 
 .idea-body {
-  margin: 40px 20px;
+  color: #939598;
+  margin: 40px 0;
 }
 
-.upvote-button,
-.current-ranking {
+.downvote-button {
+  margin-left: 20px;
+}
+.current-quality {
   margin: 0 20px;
 }
