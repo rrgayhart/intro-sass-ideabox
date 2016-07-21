@@ -45,16 +45,20 @@ $(document).ready(function(){
 
 	//read local storage
 	//set ideas > array to value of ideasAll > localStorage
-	// function initialize () {
 		var ideasFromStorage = localStorage.getItem('ideasAll') || '[]';
 		var ideasAsObjects = JSON.parse(ideasFromStorage);
 		ideasAll = ideasAsObjects.map(function(obj) {
 			return new Idea(obj.title, obj.body, obj.id, obj.quality)
 		});
-	// };
+
 
 	//render ideasAll to the DOM possibly use .map again?
 	//possibly for loop to append the elements
+		for (var x = 0, x = ideasAll.length(), x++) {
+			var storedTitle = document.createElement('h2.idea-title')
+			h2[x].appendChild(storedTitle);
+		};
+
 
 	$deleteButton.hover(function() {
 		$(this).attr("src","images/delete-hover.svg");
