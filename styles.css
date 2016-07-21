@@ -4,7 +4,6 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-/* Whole page fonts per comp */
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -14,9 +13,14 @@ h1, h2, span {
 }
 
 h1 {
-  text-align: center;
-  margin: 30px 0;
   font-size: 3em;
+  margin: 30px 0;
+  text-align: center;
+}
+
+h1,
+.idea-title,
+.current-quality {
   color: #6D6E71;
 }
 
@@ -27,6 +31,7 @@ h1 {
 .text-input {
   font-size: 20px;
   padding: 1%;
+  border: 1px solid #D1D3D4;
 }
 
 .body-input,
@@ -36,49 +41,52 @@ h1 {
 
 .image {
   height: 30px;
-  width: 30px;
   margin-bottom: 6%;
+  width: 30px;
+}
+
+.input-container,
+.input-area,
+.new-idea-area,
+.quality-container {
+  display: flex;
+}
+
+.input-container,
+.input-area,
+.new-idea-area {
+  flex-direction: column;
 }
 
 .input-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background: #E5F3F2;
 }
 
-.input-area {
-  display: flex;
-  flex-direction: column;
+.input-area,
+.search-input {
   width: 55%;
 }
 
 button {
+  font-size: 1.2em;
   margin: 20px 0;
   padding: 1% 54.5% 4.5% 44.5%;
-  font-size: 1.2em
 }
 
 .save-button {
-  color: #FFFFFF;
   background-color: #00A79D;
+  color: #FFF;
   height: 30px;
   width: 100px;
 }
 
 .save-button:hover {
-  color: #FFFFFF;
   background-color: #045E55;
 }
 
 .new-idea-area {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.search-input {
-  width: 55%;
 }
 
 .idea-card {
@@ -91,10 +99,6 @@ h2 {
   font-size: 1.5em;
 }
 
-.quality-container {
-  display: flex;
-}
-
 .delete-button {
   float: right;
   margin-right: 5px;
@@ -103,11 +107,6 @@ h2 {
 
 .idea-title {
   margin: 20px 0;
-}
-
-.idea-title,
-.current-quality {
-  color: #6D6E71;
 }
 
 .idea-body {
@@ -119,6 +118,28 @@ h2 {
 .downvote-button {
   margin-left: 20px;
 }
+
 .current-quality {
   margin: 0 20px;
+}
+
+@media screen and (max-width: 700px){
+
+.body-input {
+  height: 100px;
+}
+
+.input-area,
+.search-input {
+  width: 80%;
+}
+
+.idea-card {
+  max-width: 80%;
+}
+
+.save-button {
+  padding-bottom: 30px;
+}
+
 }
