@@ -7,12 +7,13 @@ var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var ideasAll = [];
 
+
 // Work on constructor for a new Idea
-function Idea (title, body) {
+function Idea (title, body, id, quality) {
   this.title = title;
   this.body = body;
-  this.id = Date.now();
-  this.quality = 'swill';
+  this.id = id || Date.now();
+  this.quality = quality || 'swill';
 }
 
 function clearInputFields () {
@@ -22,28 +23,43 @@ function clearInputFields () {
 
 //Contructor to perform actions on the ideas
 var Ideas = {
-	addIdea: function(newIdea) {
+	storeIdeas: function(newIdea) {
 		ideasAll.push(newIdea);
-		localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
+		localStorage.setItem('ideasAll', JSON.stringify(ideasAll));
+	},
+
+	retrieveIdeas: function () {
+		var ideasFromStorage = localStorage.getItem('ideasAll') || '[]';
+		var ideasAsObjects = JSON.parse(ideasFromStorage);
+		ideasAll = ideasAsObjects.map(function(obj) {
+			return new Idea(obj.title, obj.body, obj.id, obj.quality)
+		});
 	}
 }
+
 // Idea.prototype. = ;
 // Saving and retrieving ideas
-
-// How do I work with a bunch of ideas? ideasAll
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-	// ideasAll.push(newIdea);
-	// localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
-	Ideas.addIdea(newIdea);
+	Ideas.storeIdeas(newIdea);
 	clearInputFields();
 });
 
 // These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
 // TODO: Refactor these into less code.
 $(document).ready(function(){
+
+	//read local storage
+	//set ideas > array to value of ideasAll > localStorage
+
+	Ideas.retrieveIdeas();
+
+	//render ideasAll to the DOM possibly use .map again?
+	//possibly for loop to append the elements
+
+
 
 	$deleteButton.hover(function() {
 		$(this).attr("src","images/delete-hover.svg");
