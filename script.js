@@ -5,7 +5,24 @@ var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
-var ideasAll = [];
+
+$deleteButton.hover(function() {
+	$(this).attr("src","images/delete-hover.svg");
+	}, function() {
+	$(this).attr("src","images/delete.svg");
+});
+
+$upvoteButton.hover(function() {
+	$(this).attr("src","images/upvote-hover.svg");
+		}, function() {
+	$(this).attr("src","images/upvote.svg");
+});
+
+$downvoteButton.hover(function() {
+	$(this).attr("src","images/downvote-hover.svg");
+		}, function() {
+	$(this).attr("src","images/downvote.svg");
+});
 
 
 // Work on constructor for a new Idea
@@ -21,29 +38,36 @@ function clearInputFields () {
 	$bodyInput.val("");
 }
 
-//Contructor to perform actions on the ideas
+//Object for ideas
 var Ideas = {
-	storeIdeas: function(newIdea) {
-		ideasAll.push(newIdea);
-		localStorage.setItem('ideasAll', JSON.stringify(ideasAll));
+	allIdeas: [],
+
+	add: function (title, body) {
+		// var newIdea = new Idea($titleInput.val(), $bodyInput.val());
+		this.allIdeas.push(new Idea(title, body));
+		this.store();
 	},
 
-	retrieveIdeas: function () {
-		var ideasFromStorage = localStorage.getItem('ideasAll') || '[]';
+	store: function() {
+		localStorage.setItem('allIdeas', JSON.stringify(this.allIdeas));
+	},
+
+	retrieve: function () {
+		var ideasFromStorage = localStorage.getItem('allIdeas') || '[]';
 		var ideasAsObjects = JSON.parse(ideasFromStorage);
-		ideasAll = ideasAsObjects.map(function(obj) {
+		this.allIdeas = ideasAsObjects.map(function(obj) {
 			return new Idea(obj.title, obj.body, obj.id, obj.quality)
 		});
 	}
-}
+};
 
 // Idea.prototype. = ;
 // Saving and retrieving ideas
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
-	var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-	Ideas.storeIdeas(newIdea);
+
+	Ideas.add($titleInput.val(), $bodyInput.val());
 	clearInputFields();
 });
 
@@ -52,31 +76,15 @@ $saveButton.on('click', function() {
 $(document).ready(function(){
 
 	//read local storage
-	//set ideas > array to value of ideasAll > localStorage
+	//set ideas > array to value of allIdeas > localStorage
 
-	Ideas.retrieveIdeas();
+	Ideas.retrieve();
 
-	//render ideasAll to the DOM possibly use .map again?
+	//render allIdeas to the DOM possibly use .map again?
 	//possibly for loop to append the elements
 
 
 
-	$deleteButton.hover(function() {
-		$(this).attr("src","images/delete-hover.svg");
-		}, function() {
-		$(this).attr("src","images/delete.svg");
-	});
 
-   $upvoteButton.hover(function() {
-    $(this).attr("src","images/upvote-hover.svg");
-      }, function() {
-    $(this).attr("src","images/upvote.svg");
-  });
-
-  $downvoteButton.hover(function() {
-    $(this).attr("src","images/downvote-hover.svg");
-      }, function() {
-    $(this).attr("src","images/downvote.svg");
-  });
 
 });
