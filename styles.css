@@ -26,12 +26,11 @@ h1 {
 
 .text-input {
   font-size: 20px;
+  margin-top: 20px;
+  padding: 1%;
   /*max-height: 30px;*/
   /*width: 100%;*/
 }
-
-
-  /*Below is the styling for idea content cards*/
 
 .image {
   height: 30px;
@@ -54,6 +53,14 @@ h1 {
   /*justify-content: center;*/
   /*margin-left: 280px;
   margin-right: 280px;*/
+}
+
+button {
+  margin: 20px 0;
+  padding: 1% 54.5% 4.5% 44.5%;
+  /*text-align: center;*/
+  font-size: 1.2em
+
 }
 
 
