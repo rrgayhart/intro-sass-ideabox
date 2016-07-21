@@ -7,6 +7,7 @@ var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var ideasAll = [];
 
+
 // Work on constructor for a new Idea
 function Idea (title, body, id, quality) {
   this.title = title;
@@ -22,20 +23,27 @@ function clearInputFields () {
 
 //Contructor to perform actions on the ideas
 var Ideas = {
-	addIdea: function(newIdea) {
+	storeIdeas: function(newIdea) {
 		ideasAll.push(newIdea);
 		localStorage.setItem('ideasAll', JSON.stringify(ideasAll));
+	},
+
+	retrieveIdeas: function () {
+		var ideasFromStorage = localStorage.getItem('ideasAll') || '[]';
+		var ideasAsObjects = JSON.parse(ideasFromStorage);
+		ideasAll = ideasAsObjects.map(function(obj) {
+			return new Idea(obj.title, obj.body, obj.id, obj.quality)
+		});
 	}
 }
+
 // Idea.prototype. = ;
 // Saving and retrieving ideas
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-	// ideasAll.push(newIdea);
-	// localStorage.setItem('saveIdea', JSON.stringify(ideasAll));
-	Ideas.addIdea(newIdea);
+	Ideas.storeIdeas(newIdea);
 	clearInputFields();
 });
 
@@ -45,20 +53,12 @@ $(document).ready(function(){
 
 	//read local storage
 	//set ideas > array to value of ideasAll > localStorage
-		var ideasFromStorage = localStorage.getItem('ideasAll') || '[]';
-		var ideasAsObjects = JSON.parse(ideasFromStorage);
-		ideasAll = ideasAsObjects.map(function(obj) {
-			return new Idea(obj.title, obj.body, obj.id, obj.quality)
-		});
 
+	Ideas.retrieveIdeas();
 
 	//render ideasAll to the DOM possibly use .map again?
 	//possibly for loop to append the elements
-		// for (var x = 0, x = ideasAll.length(), x++) {
-		// 	var storedTitle = document.createElement('h2.idea-title')
-		// 	h2[x].appendChild(storedTitle);
-		// 	break;
-		// }
+
 
 
 	$deleteButton.hover(function() {
