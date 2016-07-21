@@ -54,10 +54,11 @@ $(document).ready(function(){
 
 	//render ideasAll to the DOM possibly use .map again?
 	//possibly for loop to append the elements
-		for (var x = 0, x = ideasAll.length(), x++) {
-			var storedTitle = document.createElement('h2.idea-title')
-			h2[x].appendChild(storedTitle);
-		};
+		// for (var x = 0, x = ideasAll.length(), x++) {
+		// 	var storedTitle = document.createElement('h2.idea-title')
+		// 	h2[x].appendChild(storedTitle);
+		// 	break;
+		// }
 
 
 	$deleteButton.hover(function() {
