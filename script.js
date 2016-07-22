@@ -5,7 +5,7 @@ var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
-var $newIdeaArea = $('.new-idea-area');
+var $ideaList = $('.idea-list');
 
 $deleteButton.hover(function() {
 	$(this).attr("src","images/delete-hover.svg");
@@ -43,7 +43,7 @@ $downvoteButton.hover(function() {
 // 	'</article>'
 // }
 //
-// $newIdeaArea.append(Ideas.allIdeas());
+// $idea-list.append(Ideas.allIdeas());
 
 // Work on constructor for a new Idea
 function Idea (title, body, id, quality) {
@@ -81,9 +81,9 @@ var Ideas = {
 	},
 
 	render: function() {
-		$newIdeaArea.html('')
+		$ideaList.html('')
 		this.allIdeas.forEach( function (idea) {
-			$newIdeaArea.append(
+			$ideaList.append(
 				'<article class="idea-card">' +
           '<h2 class="idea-title">' + idea.title + '</h2>' +
           '<input type="image" src="images/delete.svg" class="image delete-button">' +
@@ -139,6 +139,23 @@ $(document).ready(function(){
 	//render allIdeas to the DOM possibly use .map again?
 	//possibly for loop to append the elements
 
+	// $deleteButton.hover(function() {
+	// 	$(this).attr("src","images/delete-hover.svg");
+	// 	}, function() {
+	// 	$(this).attr("src","images/delete.svg");
+	// });
+	//
+	// $upvoteButton.hover(function() {
+	// 	$(this).attr("src","images/upvote-hover.svg");
+	// 		}, function() {
+	// 	$(this).attr("src","images/upvote.svg");
+	// });
+	//
+	// $downvoteButton.hover(function() {
+	// 	$(this).attr("src","images/downvote-hover.svg");
+	// 		}, function() {
+	// 	$(this).attr("src","images/downvote.svg");
+	// });
 
 
 
