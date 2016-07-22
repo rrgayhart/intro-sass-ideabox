@@ -5,6 +5,7 @@ var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
+var $ideaList = $('.idea-list');
 
 $deleteButton.hover(function() {
 	$(this).attr("src","images/delete-hover.svg");
@@ -24,6 +25,25 @@ $downvoteButton.hover(function() {
 	$(this).attr("src","images/downvote.svg");
 });
 
+// Tried to mimic link list
+// function ideaTemplate (title, body) {
+// 	return '<article class="idea-card">' +
+// 		'<h2 class="idea-title">' + idea.title + '</h2>' +
+// 		'<input type="image" src="images/delete.svg" class="image delete-button">' +
+// 		'<p class="idea-body">' +
+// 			idea.body +
+// 		'</p>' +
+// 		'<div class="quality-container">' +
+// 			'<input type="image" src="images/upvote.svg" class="image upvote-button">' +
+// 			'<input type="image" src="images/downvote.svg"class="image downvote-button">' +
+// 			'<aside class="current-quality">' +
+// 				idea.quality +
+// 			'</aside>' +
+// 		'</div>' +
+// 	'</article>'
+// }
+//
+// $idea-list.append(Ideas.allIdeas());
 
 // Work on constructor for a new Idea
 function Idea (title, body, id, quality) {
@@ -58,16 +78,52 @@ var Ideas = {
 		this.allIdeas = ideasAsObjects.map(function(obj) {
 			return new Idea(obj.title, obj.body, obj.id, obj.quality)
 		});
+	},
+
+	render: function() {
+		$ideaList.html('')
+		this.allIdeas.forEach( function (idea) {
+			$ideaList.append(
+				'<article class="idea-card">' +
+          '<h2 class="idea-title">' + idea.title + '</h2>' +
+          '<input type="image" src="images/delete.svg" class="image delete-button">' +
+          '<p class="idea-body">' +
+            idea.body +
+          '</p>' +
+          '<div class="quality-container">' +
+            '<input type="image" src="images/upvote.svg" class="image upvote-button">' +
+            '<input type="image" src="images/downvote.svg"class="image downvote-button">' +
+            '<aside class="current-quality">' +
+              idea.quality +
+            '</aside>' +
+          '</div>' +
+        '</article>'
+			)
+		});
 	}
 };
 
-// Idea.prototype. = ;
-// Saving and retrieving ideas
+// TODO:Idea.prototype.toHTML = function () {
+// 	return { <article class="idea-card">
+// 		<h2 class="idea-title"> this.title</h2>
+// 		<input type="image" src="images/delete.svg" class="image delete-button">
+// 		<p class="idea-body">
+// 			this.body
+// 		</p>
+// 		<div class="quality-container">
+// 			<input type="image" src="images/upvote.svg" class="image upvote-button">
+// 			<input type="image" src="images/downvote.svg"class="image downvote-button">
+// 			<aside class="current-quality">
+// 				this.quality
+// 			</aside>
+// 		</div>
+// 	</article>
+// }
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
-
 	Ideas.add($titleInput.val(), $bodyInput.val());
+	Ideas.render();
 	clearInputFields();
 });
 
@@ -79,10 +135,27 @@ $(document).ready(function(){
 	//set ideas > array to value of allIdeas > localStorage
 
 	Ideas.retrieve();
-
+	Ideas.render();
 	//render allIdeas to the DOM possibly use .map again?
 	//possibly for loop to append the elements
 
+	// $deleteButton.hover(function() {
+	// 	$(this).attr("src","images/delete-hover.svg");
+	// 	}, function() {
+	// 	$(this).attr("src","images/delete.svg");
+	// });
+	//
+	// $upvoteButton.hover(function() {
+	// 	$(this).attr("src","images/upvote-hover.svg");
+	// 		}, function() {
+	// 	$(this).attr("src","images/upvote.svg");
+	// });
+	//
+	// $downvoteButton.hover(function() {
+	// 	$(this).attr("src","images/downvote-hover.svg");
+	// 		}, function() {
+	// 	$(this).attr("src","images/downvote.svg");
+	// });
 
 
 
