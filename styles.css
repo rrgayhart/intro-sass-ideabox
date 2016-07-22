@@ -64,7 +64,8 @@ h1,
 }
 
 .input-area,
-.search-input {
+.search-input,
+.idea-list {
   width: 55%;
 }
 
@@ -92,7 +93,6 @@ button {
 .idea-card {
   border-bottom: 2px solid #D1D3D4;
   margin: 5px 0;
-  max-width: 55%;
 }
 
 h2 {
@@ -104,6 +104,12 @@ h2 {
   margin-right: 5px;
   margin-top: -40px;
 }
+
+.delete-button {
+    background-image: url(images/delete-hover.svg)
+    
+}
+
 
 .idea-title {
   margin: 20px 0;
@@ -130,7 +136,7 @@ h2 {
 }
 
 .input-area,
-.search-input {
+.search-input, {
   width: 80%;
 }
 
