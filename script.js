@@ -6,7 +6,7 @@ var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var $ideaList = $('.idea-list');
-
+var $searchInput = $('.search-input')
 
 
 // Work on constructor for a new Idea
@@ -27,8 +27,7 @@ var Ideas = {
 	allIdeas: [],
 
 	add: function (title, body) {
-		// var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-		this.allIdeas.push(new Idea(title, body));
+		this.allIdeas.unshift(new Idea(title, body));
 		this.store();
 	},
 
@@ -66,33 +65,49 @@ var Ideas = {
 		});
 	},
 
-		sort: function () {
-			this.allIdeas.sort( function (idea) {
-				if (idea.id > idea.id) {
-					return 1;
-				}
-				if (idea.id < idea.id) {
-					return -1;
-				}
-				return 0;
-			});
-		}
+	// sort: function (idea) {
+	// 	var id = parseInt(id);
+	// 	this.allIdeas.sort( function (a,b) {
+	// 		if (a.id > b.id) {
+	// 			return 1;
+	// 		}
+	// 		if (a.id < b.id) {
+	// 			return -1;
+	// 		}
+	// 		return 0;
+	// 	});
+	// 	this.store();
+	// },
+
+	search: function () {
+		this.allIdeas.find( function (title, body) {
+			if ($searchInput === idea.title || idea.body) {
+				return Idea;
+			}
+		});
+	}
 };
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	Ideas.add($titleInput.val(), $bodyInput.val());
-	Ideas.sort();
+	Ideas.store();
 	Ideas.render();
 	clearInputFields();
+});
+
+//Have search input filter results
+$searchInput.on('keyup', function() {
+
 });
 
 // TODO: Refactor these into less code.
 $(document).ready(function(){
 
 	Ideas.retrieve();
-	Ideas.sort();
+	// Ideas.sort();
 	Ideas.render();
+
 
 	// These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
 
