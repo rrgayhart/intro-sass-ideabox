@@ -82,7 +82,16 @@ var Ideas = {
         foundIdea.quality = 'plausible';
       }
     },
-
+  levelDown: function(id) {
+      id = parseInt(id);
+      var foundIdea = Ideas.findIdea(id);
+      if (foundIdea.quality === 'plausible') {
+        foundIdea.quality = 'swill';
+      }
+      if (foundIdea.quality === 'genius') {
+        foundIdea.quality = 'plausible';
+      }
+    },
 
 	remove: function(id) {
 		this.allIdeas = this.allIdeas.filter(function(idea) {
@@ -109,6 +118,12 @@ $ideaList.on('click', '.delete-button', function() {
 $ideaList.on('click', '.upvote-button', function() {
   var id = $(this).parent().parent().data('id');
   Ideas.levelUp(id);
+  Ideas.render();
+});
+
+$ideaList.on('click', '.downvote-button', function() {
+  var id = $(this).parent().parent().data('id');
+  Ideas.levelDown(id);
   Ideas.render();
 });
 
