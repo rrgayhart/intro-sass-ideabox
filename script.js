@@ -6,7 +6,7 @@ var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var $ideaList = $('.idea-list');
-var $searchInput = $('.search-input')
+var $searchInput = $('.search-input');
 
 
 // Work on constructor for a new Idea
@@ -39,12 +39,12 @@ var Ideas = {
 		var ideasFromStorage = localStorage.getItem('allIdeas') || '[]';
 		var ideasAsObjects = JSON.parse(ideasFromStorage);
 		this.allIdeas = ideasAsObjects.map(function(obj) {
-			return new Idea(obj.title, obj.body, obj.id, obj.quality)
+			return new Idea(obj.title, obj.body, obj.id, obj.quality);
 		});
 	},
 
 	render: function () {
-		$ideaList.html('')
+		$ideaList.html('');
 		this.allIdeas.forEach( function (idea) {
 			$ideaList.append(
 				'<article class="idea-card" data-id=' + idea.id + '>' +
@@ -61,7 +61,7 @@ var Ideas = {
             '</aside>' +
           '</div>' +
         '</article>'
-			)
+			);
 		});
 	},
 
@@ -72,21 +72,17 @@ var Ideas = {
     });
   },
 
-  levelUp: function() {
-    // Ideas.find(id);
+  levelUp: function(id) {
+      id = parseInt(id);
+      var foundIdea = Ideas.findIdea(id);
+      if (foundIdea.quality === 'plausible') {
+        foundIdea.quality = 'genius';
+      }
+      if (foundIdea.quality === 'swill') {
+        foundIdea.quality = 'plausible';
+      }
+    },
 
-    this.allIdeas = this.allIdeas.filter(function(idea) {
-      if (idea.quality === 'swill') {
-        return idea.quality = 'plausible';
-      }
-      if (idea.quality === 'plausible') {
-        return idea.quality = 'genius';
-      }
-      if (idea.quality === 'genius') {
-        return idea.quality;
-      }
-    })
-  },
 
 	remove: function(id) {
 		this.allIdeas = this.allIdeas.filter(function(idea) {
@@ -160,8 +156,5 @@ $(document).ready(function(){
 	// 		}, function() {
 	// 	$(this).attr("src","images/downvote.svg");
 	// });
-
-
-
 
 });
