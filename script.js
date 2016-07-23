@@ -96,6 +96,11 @@ $saveButton.on('click', function() {
 	clearInputFields();
 });
 
+//Delete button functionality
+$ideaList.on('click', '.delete-button', function() {
+	Ideas.html('');
+})
+
 //Have search input filter results
 $searchInput.on('keyup', function() {
 
@@ -105,7 +110,6 @@ $searchInput.on('keyup', function() {
 $(document).ready(function(){
 
 	Ideas.retrieve();
-	// Ideas.sort();
 	Ideas.render();
 
 
