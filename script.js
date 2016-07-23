@@ -70,6 +70,19 @@ var Ideas = {
 		  return idea.id !== id;
 		});
 		this.store();
+	},
+
+	levelUp: function(id) {
+		this.allIdeas = this.allIdeas.filter( function(idea) {
+			idea.id === id
+				if (idea.quality = 'plausible') {
+					return idea.quality = 'genius'
+				}
+				if (idea.quality = 'swill') {
+				 return idea.quality = 'plausible'
+				}
+		});
+		this.store();
 	}
 };
 
@@ -85,7 +98,14 @@ $ideaList.on('click', '.delete-button', function() {
 	var id = $(this).parent().data('id');
 	Ideas.remove(id);
 	Ideas.render();
-})
+});
+
+//LevelUp button functionality
+$ideaList.on('click', '.upvote-button', function (){
+	var id = $(this).parent().parent().data('id');
+	Ideas.levelUp(id);
+	Ideas.render();
+});
 
 //Have search input filter results
 // $searchInput.on('keyup', Ideas.find());
