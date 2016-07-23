@@ -7,43 +7,7 @@ var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var $ideaList = $('.idea-list');
 
-$deleteButton.hover(function() {
-	$(this).attr("src","images/delete-hover.svg");
-	}, function() {
-	$(this).attr("src","images/delete.svg");
-});
 
-$upvoteButton.hover(function() {
-	$(this).attr("src","images/upvote-hover.svg");
-		}, function() {
-	$(this).attr("src","images/upvote.svg");
-});
-
-$downvoteButton.hover(function() {
-	$(this).attr("src","images/downvote-hover.svg");
-		}, function() {
-	$(this).attr("src","images/downvote.svg");
-});
-
-// Tried to mimic link list
-// function ideaTemplate (title, body) {
-// 	return '<article class="idea-card">' +
-// 		'<h2 class="idea-title">' + idea.title + '</h2>' +
-// 		'<input type="image" src="images/delete.svg" class="image delete-button">' +
-// 		'<p class="idea-body">' +
-// 			idea.body +
-// 		'</p>' +
-// 		'<div class="quality-container">' +
-// 			'<input type="image" src="images/upvote.svg" class="image upvote-button">' +
-// 			'<input type="image" src="images/downvote.svg"class="image downvote-button">' +
-// 			'<aside class="current-quality">' +
-// 				idea.quality +
-// 			'</aside>' +
-// 		'</div>' +
-// 	'</article>'
-// }
-//
-// $idea-list.append(Ideas.allIdeas());
 
 // Work on constructor for a new Idea
 function Idea (title, body, id, quality) {
@@ -140,9 +104,9 @@ $(document).ready(function(){
 	//possibly for loop to append the elements
 
 	// $deleteButton.hover(function() {
-	// 	$(this).attr("src","images/delete-hover.svg");
-	// 	}, function() {
-	// 	$(this).attr("src","images/delete.svg");
+	// 	Idea.attr("src","images/delete-hover.svg");
+	// }, function() {
+	// 	Idea.attr("src","images/delete.svg");
 	// });
 	//
 	// $upvoteButton.hover(function() {
