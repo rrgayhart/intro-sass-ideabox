@@ -103,23 +103,23 @@ $(document).ready(function(){
 	//render allIdeas to the DOM possibly use .map again?
 	//possibly for loop to append the elements
 
-	$deleteButton.hover(function() {
-		Idea.attr("src","images/delete-hover.svg");
-	}, function() {
-		Idea.attr("src","images/delete.svg");
-	});
-
-	$upvoteButton.hover(function() {
-		$(this).attr("src","images/upvote-hover.svg");
-			}, function() {
-		$(this).attr("src","images/upvote.svg");
-	});
-
-	$downvoteButton.hover(function() {
-		$(this).attr("src","images/downvote-hover.svg");
-			}, function() {
-		$(this).attr("src","images/downvote.svg");
-	});
+	// $deleteButton.hover(function() {
+	// 	Idea.attr("src","images/delete-hover.svg");
+	// }, function() {
+	// 	Idea.attr("src","images/delete.svg");
+	// });
+	//
+	// $upvoteButton.hover(function() {
+	// 	$(this).attr("src","images/upvote-hover.svg");
+	// 		}, function() {
+	// 	$(this).attr("src","images/upvote.svg");
+	// });
+	//
+	// $downvoteButton.hover(function() {
+	// 	$(this).attr("src","images/downvote-hover.svg");
+	// 		}, function() {
+	// 	$(this).attr("src","images/downvote.svg");
+	// });
 
 
 
