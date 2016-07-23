@@ -65,6 +65,29 @@ var Ideas = {
 		});
 	},
 
+  findIdea: function(id) {
+    id = parseInt(id);
+    return this.allIdeas.find(function(idea) {
+      return idea.id === id;
+    });
+  },
+
+  levelUp: function() {
+    // Ideas.find(id);
+
+    this.allIdeas = this.allIdeas.filter(function(idea) {
+      if (idea.quality === 'swill') {
+        return idea.quality = 'plausible';
+      }
+      if (idea.quality === 'plausible') {
+        return idea.quality = 'genius';
+      }
+      if (idea.quality === 'genius') {
+        return idea.quality;
+      }
+    })
+  },
+
 	remove: function(id) {
 		this.allIdeas = this.allIdeas.filter(function(idea) {
 		  return idea.id !== id;
@@ -100,11 +123,12 @@ $ideaList.on('click', '.delete-button', function() {
 	Ideas.render();
 });
 
+
 //LevelUp button functionality
-$ideaList.on('click', '.upvote-button', function (){
-	var id = $(this).parent().parent().data('id');
-	Ideas.levelUp(id);
-	Ideas.render();
+$ideaList.on('click', '.upvote-button', function() {
+  var id = $(this).parent().parent().data('id');
+  Ideas.levelUp(id);
+  Ideas.render();
 });
 
 //Have search input filter results
