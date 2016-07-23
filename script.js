@@ -47,7 +47,7 @@ var Ideas = {
 		$ideaList.html('')
 		this.allIdeas.forEach( function (idea) {
 			$ideaList.append(
-				'<article class="idea-card">' +
+				'<article class="idea-card" data-id=' + idea.id + '>' +
           '<h2 class="idea-title">' + idea.title + '</h2>' +
           '<input type="image" src="images/delete.svg" class="image delete-button">' +
           '<p class="idea-body">' +
@@ -56,7 +56,7 @@ var Ideas = {
           '<div class="quality-container">' +
             '<input type="image" src="images/upvote.svg" class="image upvote-button">' +
             '<input type="image" src="images/downvote.svg"class="image downvote-button">' +
-            '<aside class="current-quality">' +
+            '<aside class="current-quality"><span>quality: </span>' +
               idea.quality +
             '</aside>' +
           '</div>' +
@@ -65,46 +65,30 @@ var Ideas = {
 		});
 	},
 
-	// sort: function (idea) {
-	// 	var id = parseInt(id);
-	// 	this.allIdeas.sort( function (a,b) {
-	// 		if (a.id > b.id) {
-	// 			return 1;
-	// 		}
-	// 		if (a.id < b.id) {
-	// 			return -1;
-	// 		}
-	// 		return 0;
-	// 	});
-	// 	this.store();
-	// },
-
-	search: function () {
-		this.allIdeas.find( function (title, body) {
-			if ($searchInput === idea.title || idea.body) {
-				return Idea;
-			}
+	remove: function(id) {
+		this.allIdeas = this.allIdeas.filter(function(idea) {
+		  return idea.id !== id;
 		});
+		this.store();
 	}
 };
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	Ideas.add($titleInput.val(), $bodyInput.val());
-	Ideas.store();
 	Ideas.render();
 	clearInputFields();
 });
 
 //Delete button functionality
 $ideaList.on('click', '.delete-button', function() {
-	Ideas.html('');
+	var id = $(this).parent().data('id');
+	Ideas.remove(id);
+	Ideas.render();
 })
 
 //Have search input filter results
-$searchInput.on('keyup', function() {
-
-});
+// $searchInput.on('keyup', Ideas.find());
 
 // TODO: Refactor these into less code.
 $(document).ready(function(){
