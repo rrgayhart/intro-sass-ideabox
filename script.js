@@ -6,7 +6,7 @@ var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var $ideaList = $('.idea-list');
-
+var $searchInput = $('.search-input')
 
 
 // Work on constructor for a new Idea
@@ -27,12 +27,11 @@ var Ideas = {
 	allIdeas: [],
 
 	add: function (title, body) {
-		// var newIdea = new Idea($titleInput.val(), $bodyInput.val());
-		this.allIdeas.push(new Idea(title, body));
+		this.allIdeas.unshift(new Idea(title, body));
 		this.store();
 	},
 
-	store: function() {
+	store: function () {
 		localStorage.setItem('allIdeas', JSON.stringify(this.allIdeas));
 	},
 
@@ -44,7 +43,7 @@ var Ideas = {
 		});
 	},
 
-	render: function() {
+	render: function () {
 		$ideaList.html('')
 		this.allIdeas.forEach( function (idea) {
 			$ideaList.append(
@@ -64,44 +63,53 @@ var Ideas = {
         '</article>'
 			)
 		});
+	},
+
+	// sort: function (idea) {
+	// 	var id = parseInt(id);
+	// 	this.allIdeas.sort( function (a,b) {
+	// 		if (a.id > b.id) {
+	// 			return 1;
+	// 		}
+	// 		if (a.id < b.id) {
+	// 			return -1;
+	// 		}
+	// 		return 0;
+	// 	});
+	// 	this.store();
+	// },
+
+	search: function () {
+		this.allIdeas.find( function (title, body) {
+			if ($searchInput === idea.title || idea.body) {
+				return Idea;
+			}
+		});
 	}
 };
-
-// TODO:Idea.prototype.toHTML = function () {
-// 	return { <article class="idea-card">
-// 		<h2 class="idea-title"> this.title</h2>
-// 		<input type="image" src="images/delete.svg" class="image delete-button">
-// 		<p class="idea-body">
-// 			this.body
-// 		</p>
-// 		<div class="quality-container">
-// 			<input type="image" src="images/upvote.svg" class="image upvote-button">
-// 			<input type="image" src="images/downvote.svg"class="image downvote-button">
-// 			<aside class="current-quality">
-// 				this.quality
-// 			</aside>
-// 		</div>
-// 	</article>
-// }
 
 //Have save button pull inputs
 $saveButton.on('click', function() {
 	Ideas.add($titleInput.val(), $bodyInput.val());
+	Ideas.store();
 	Ideas.render();
 	clearInputFields();
 });
 
-// These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
+//Have search input filter results
+$searchInput.on('keyup', function() {
+
+});
+
 // TODO: Refactor these into less code.
 $(document).ready(function(){
 
-	//read local storage
-	//set ideas > array to value of allIdeas > localStorage
-
 	Ideas.retrieve();
+	// Ideas.sort();
 	Ideas.render();
-	//render allIdeas to the DOM possibly use .map again?
-	//possibly for loop to append the elements
+
+
+	// These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
 
 	// $deleteButton.hover(function() {
 	// 	Idea.attr("src","images/delete-hover.svg");
