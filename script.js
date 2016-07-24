@@ -152,25 +152,4 @@ $(document).ready(function(){
 	Ideas.retrieve();
 	Ideas.render();
 
-
-	// These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
-
-	// $deleteButton.hover(function() {
-	// 	Idea.attr("src","images/delete-hover.svg");
-	// }, function() {
-	// 	Idea.attr("src","images/delete.svg");
-	// });
-	//
-	// $upvoteButton.hover(function() {
-	// 	$(this).attr("src","images/upvote-hover.svg");
-	// 		}, function() {
-	// 	$(this).attr("src","images/upvote.svg");
-	// });
-	//
-	// $downvoteButton.hover(function() {
-	// 	$(this).attr("src","images/downvote-hover.svg");
-	// 		}, function() {
-	// 	$(this).attr("src","images/downvote.svg");
-	// });
-
 });
