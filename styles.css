@@ -39,6 +39,10 @@ h1,
   margin-top: 20px;
 }
 
+.body-input {
+  height: 40px;
+}
+
 .image {
   height: 30px;
   margin-bottom: 6%;
@@ -142,26 +146,27 @@ h2 {
 }
 
 .current-quality {
-  margin: 0 20px;
+  margin: 5px 0 0 30px;
+
 }
 
 @media screen and (max-width: 700px){
 
-.body-input {
-  height: 100px;
-}
+  .body-input {
+    height: 100px;
+  }
 
-.input-area,
-.search-input, {
-  width: 80%;
-}
+  .input-area,
+  .search-input, {
+    width: 80%;
+  }
 
-.idea-card {
-  max-width: 80%;
-}
+  .idea-card {
+    max-width: 80%;
+  }
 
-.save-button {
-  padding-bottom: 30px;
-}
+  .save-button {
+    padding-bottom: 30px;
+  }
 
 }
