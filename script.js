@@ -43,27 +43,27 @@ var Ideas = {
 		});
 	},
 
-	render: function () {
-		$ideaList.html('');
-		this.allIdeas.forEach( function (idea) {
-			$ideaList.append(
-				'<article class="idea-card" data-id=' + idea.id + '>' +
+  render: function () {
+    $ideaList.html('');
+    this.allIdeas.forEach( function (idea) {
+      $ideaList.append(
+        '<article class="idea-card" data-id=' + idea.id + '>' +
           '<h2 class="idea-title">' + idea.title + '</h2>' +
-          '<input type="image" src="images/delete.svg" class="image delete-button">' +
+          '<button class="image delete-button"></button>' +
           '<p class="idea-body">' +
             idea.body +
           '</p>' +
           '<div class="quality-container">' +
-            '<input type="image" src="images/upvote.svg" class="image upvote-button">' +
-            '<input type="image" src="images/downvote.svg"class="image downvote-button">' +
+            '<button class="image upvote-button"></button>' +
+            '<button class="image downvote-button"></button>' +
             '<aside class="current-quality"><span>quality: </span>' +
               idea.quality +
             '</aside>' +
           '</div>' +
         '</article>'
-			);
-		});
-	},
+      );
+    });
+  },
 
   findIdea: function(id) {
     id = parseInt(id);

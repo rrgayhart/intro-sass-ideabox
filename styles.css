@@ -43,6 +43,7 @@ h1,
   height: 30px;
   margin-bottom: 6%;
   width: 30px;
+  border: none;
 }
 
 .input-container,
@@ -69,7 +70,7 @@ h1,
   width: 55%;
 }
 
-button {
+.save-button {
   font-size: 1.2em;
   margin: 20px 0;
   padding: 1% 54.5% 4.5% 44.5%;
@@ -103,13 +104,28 @@ h2 {
   float: right;
   margin-right: 5px;
   margin-top: -40px;
+  background: url(images/delete.svg) no-repeat;
 }
 
-.delete-button {
-    background-image: url(images/delete-hover.svg)
-
+.delete-button:hover {
+  background: url(images/delete-hover.svg) no-repeat;
 }
 
+.upvote-button {
+  background: url(images/upvote.svg) no-repeat;
+}
+
+.upvote-button:hover {
+  background: url(images/upvote-hover.svg) no-repeat;
+}
+
+.downvote-button {
+  background: url(images/downvote.svg) no-repeat;
+}
+
+.downvote-button:hover {
+  background: url(images/downvote-hover.svg) no-repeat;
+}
 
 .idea-title {
   margin: 20px 0;
