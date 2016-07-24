@@ -103,6 +103,13 @@ var Ideas = {
     this.store();
   },
 
+  bodyEdit: function(id, newBody) {
+    id = parseInt(id);
+    var idea = this.findIdea(id);
+    idea.body = newBody;
+    this.store();
+  },
+
 	remove: function(id) {
 		this.allIdeas = this.allIdeas.filter(function(idea) {
 		  return idea.id !== id;
@@ -158,27 +165,11 @@ $ideaList.on('focusout', '.idea-title', function() {
   Ideas.titleEdit(id, newTitle);
 });
 
-$ideaList.on('keyup', '.idea-title', function(e) {
-  if(e.which == 13) {
-    $(this).focusout();
-  }
+$ideaList.on('focusout', '.idea-body', function() {
+  var id = $(this).parent().data('id');
+  var newBody = $(this).text();
+  Ideas.bodyEdit(id, newBody);
 });
-
-// $ideaList.on('keypress', '.idea-card', function(event){
-//     var keycode = (event.keyCode ? event.keyCode : event.which);
-//     if(keycode == '13'){
-//       var id = $(this).parent().parent().data('id');
-//       console.log('hey');
-//       // var id = Ideas.findIdea();
-//       // Ideas.titleEdit(id);
-//     }
-  // Ideas.render();
-// });
-
-// $ideaList.on('keyup', '.idea-title', function(){
-//   id = parseInt(id);
-//   var foundIdea = Ideas.findIdea(id);
-// });
 
 $(document).ready(function(){
 
