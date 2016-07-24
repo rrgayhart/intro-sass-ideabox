@@ -1,15 +1,12 @@
 //Variables
 var $saveButton = $('.save-button');
-var $deleteButton = $('.delete-button');
-var $upvoteButton = $('.upvote-button');
-var $downvoteButton = $('.downvote-button');
 var $titleInput = $('.title-input');
 var $bodyInput = $('.body-input');
 var $ideaList = $('.idea-list');
 var $searchInput = $('.search-input');
 
 
-// Work on constructor for a new Idea
+// Constructor for a new Idea
 function Idea (title, body, id, quality) {
   this.title = title;
   this.body = body;
