@@ -133,14 +133,18 @@ $ideaList.on('click', '.downvote-button', function() {
 
 //Have search input filter results
 $searchInput.on('keyup', function() {
-    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
-        reg = RegExp(val, 'i'),
-        text;
-    $('.idea-card').show().filter(function() {
-        text = $(this).text().replace(/\s+/g, ' ');
-        return !reg.test(text);
-    }).hide();
+  var filter = $(this).val();
+  $('.idea-card').each(function() {
+   if($(this).text().search(new RegExp(filter, 'i')) < 0) {
+     $(this).fadeOut();
+   }
+   else {
+     $(this).fadeIn();
+   }
+  });
 });
+
+
 
 // TODO: Refactor these into less code.
 $(document).ready(function(){
