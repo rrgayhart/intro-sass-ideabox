@@ -81,6 +81,7 @@ var Ideas = {
       if (foundIdea.quality === 'swill') {
         foundIdea.quality = 'plausible';
       }
+      this.store();
     },
   levelDown: function(id) {
       id = parseInt(id);
@@ -91,6 +92,7 @@ var Ideas = {
       if (foundIdea.quality === 'genius') {
         foundIdea.quality = 'plausible';
       }
+      this.store();
     },
 
 	remove: function(id) {
