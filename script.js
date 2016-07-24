@@ -101,19 +101,6 @@ var Ideas = {
 		});
 		this.store();
 	},
-
-	levelUp: function(id) {
-		this.allIdeas = this.allIdeas.filter( function(idea) {
-			idea.id === id
-				if (idea.quality = 'plausible') {
-					return idea.quality = 'genius'
-				}
-				if (idea.quality = 'swill') {
-				 return idea.quality = 'plausible'
-				}
-		});
-		this.store();
-	}
 };
 
 //Have save button pull inputs
@@ -145,7 +132,15 @@ $ideaList.on('click', '.downvote-button', function() {
 });
 
 //Have search input filter results
-// $searchInput.on('keyup', Ideas.find());
+$searchInput.on('keyup', function() {
+    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+        reg = RegExp(val, 'i'),
+        text;
+    $('.idea-card').show().filter(function() {
+        text = $(this).text().replace(/\s+/g, ' ');
+        return !reg.test(text);
+    }).hide();
+});
 
 // TODO: Refactor these into less code.
 $(document).ready(function(){
