@@ -1,7 +1,7 @@
 //Variables
 var $saveButton = $('.save-button');
 var $titleInput = $('.title-input');
-var $bodyInput = $('.body-input');``
+var $bodyInput = $('.body-input');
 var $ideaList = $('.idea-list');
 var $searchInput = $('.search-input');
 
