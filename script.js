@@ -48,9 +48,9 @@ var Ideas = {
     this.allIdeas.forEach( function (idea) {
       $ideaList.append(
         '<article class="idea-card" data-id=' + idea.id + '>' +
-          '<h2 class="idea-title">' + idea.title + '</h2>' +
+          '<h2 class="idea-title" contenteditable="true">' + idea.title + '</h2>' +
           '<button class="image delete-button"></button>' +
-          '<p class="idea-body">' +
+          '<p class="idea-body" contenteditable="true">' +
             idea.body +
           '</p>' +
           '<div class="quality-container">' +
@@ -73,34 +73,49 @@ var Ideas = {
   },
 
   levelUp: function(id) {
-      id = parseInt(id);
-      var foundIdea = Ideas.findIdea(id);
-      if (foundIdea.quality === 'plausible') {
-        foundIdea.quality = 'genius';
-      }
-      if (foundIdea.quality === 'swill') {
-        foundIdea.quality = 'plausible';
-      }
-      this.store();
-    },
+    id = parseInt(id);
+    var foundIdea = Ideas.findIdea(id);
+    if (foundIdea.quality === 'plausible') {
+      foundIdea.quality = 'genius';
+    }
+    if (foundIdea.quality === 'swill') {
+      foundIdea.quality = 'plausible';
+    }
+    this.store();
+  },
+
   levelDown: function(id) {
-      id = parseInt(id);
-      var foundIdea = Ideas.findIdea(id);
-      if (foundIdea.quality === 'plausible') {
-        foundIdea.quality = 'swill';
-      }
-      if (foundIdea.quality === 'genius') {
-        foundIdea.quality = 'plausible';
-      }
-      this.store();
-    },
+    id = parseInt(id);
+    var foundIdea = Ideas.findIdea(id);
+    if (foundIdea.quality === 'plausible') {
+      foundIdea.quality = 'swill';
+    }
+    if (foundIdea.quality === 'genius') {
+      foundIdea.quality = 'plausible';
+    }
+    this.store();
+  },
+
+  titleEdit: function(id, newTitle) {
+    id = parseInt(id);
+    var idea = this.findIdea(id);
+    idea.title = newTitle;
+    this.store();
+  },
+
+  bodyEdit: function(id, newBody) {
+    id = parseInt(id);
+    var idea = this.findIdea(id);
+    idea.body = newBody;
+    this.store();
+  },
 
 	remove: function(id) {
 		this.allIdeas = this.allIdeas.filter(function(idea) {
 		  return idea.id !== id;
 		});
 		this.store();
-	},
+	}
 };
 
 //Have save button pull inputs
@@ -144,9 +159,18 @@ $searchInput.on('keyup', function() {
   });
 });
 
+$ideaList.on('focusout', '.idea-title', function() {
+  var id = $(this).parent().data('id');
+  var newTitle = $(this).text();
+  Ideas.titleEdit(id, newTitle);
+});
 
+$ideaList.on('focusout', '.idea-body', function() {
+  var id = $(this).parent().data('id');
+  var newBody = $(this).text();
+  Ideas.bodyEdit(id, newBody);
+});
 
-// TODO: Refactor these into less code.
 $(document).ready(function(){
 
 	Ideas.retrieve();
