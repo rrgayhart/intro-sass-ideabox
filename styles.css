@@ -19,8 +19,8 @@ h1 {
 }
 
 h1,
-.idea-title,
-.current-quality {
+.current-quality,
+.idea-title {
   color: #6D6E71;
 }
 
@@ -29,9 +29,9 @@ h1,
 }
 
 .text-input {
-  font-size: 20px;
-  padding: 1%;
   border: 1px solid #D1D3D4;
+  font-size: 20px;
+  padding: 5px;
 }
 
 .body-input,
@@ -39,40 +39,47 @@ h1,
   margin-top: 20px;
 }
 
-.image {
-  height: 30px;
-  margin-bottom: 6%;
-  width: 30px;
-  border: none;
+.body-input {
+  height: 40px;
 }
 
-.input-container,
+.image {
+  border: none;
+  height: 30px;
+  margin-bottom: 20px;
+  width: 30px;
+}
+
 .input-area,
+.input-container,
 .new-idea-area,
 .quality-container {
   display: flex;
 }
 
-.input-container,
 .input-area,
+.input-container,
 .new-idea-area {
   flex-direction: column;
 }
 
-.input-container {
+.input-container,
+.new-idea-area {
   align-items: center;
+}
+
+.input-container {
   background: #E5F3F2;
 }
 
+.idea-list,
 .input-area,
-.search-input,
-.idea-list {
+.search-input {
   width: 55%;
 }
 
 .save-button {
   font-size: 1.2em;
-  margin: 20px 0;
   padding: 1% 54.5% 4.5% 44.5%;
 }
 
@@ -87,13 +94,10 @@ h1,
   background-color: #045E55;
 }
 
-.new-idea-area {
-  align-items: center;
-}
-
 .idea-card {
   border-bottom: 2px solid #D1D3D4;
   margin: 5px 0;
+  padding-top: 10px;
 }
 
 h2 {
@@ -101,10 +105,10 @@ h2 {
 }
 
 .delete-button {
+  background: url(images/delete.svg) no-repeat;
   float: right;
   margin-right: 5px;
   margin-top: -40px;
-  background: url(images/delete.svg) no-repeat;
 }
 
 .delete-button:hover {
@@ -127,7 +131,8 @@ h2 {
   background: url(images/downvote-hover.svg) no-repeat;
 }
 
-.idea-title {
+.idea-title,
+.save-button {
   margin: 20px 0;
 }
 
@@ -142,26 +147,27 @@ h2 {
 }
 
 .current-quality {
-  margin: 0 20px;
+  margin: 5px 0 0 30px;
 }
 
 @media screen and (max-width: 700px){
 
-.body-input {
-  height: 100px;
-}
+  h1 {
+    font-size: 2em;
+  }
 
-.input-area,
-.search-input, {
-  width: 80%;
-}
+  .body-input {
+    height: 100px;
+  }
 
-.idea-card {
-  max-width: 80%;
-}
+  .idea-list,
+  .input-area,
+  .search-input {
+    width: 85%;
+  }
 
-.save-button {
-  padding-bottom: 30px;
-}
+  .save-button {
+    padding-bottom: 30px;
+  }
 
 }
