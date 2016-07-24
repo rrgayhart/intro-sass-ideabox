@@ -48,9 +48,9 @@ var Ideas = {
     this.allIdeas.forEach( function (idea) {
       $ideaList.append(
         '<article class="idea-card" data-id=' + idea.id + '>' +
-          '<h2 class="idea-title">' + idea.title + '</h2>' +
+          '<h2 class="idea-title" contenteditable="true">' + idea.title + '</h2>' +
           '<button class="image delete-button"></button>' +
-          '<p class="idea-body">' +
+          '<p class="idea-body" contenteditable="true">' +
             idea.body +
           '</p>' +
           '<div class="quality-container">' +
@@ -73,34 +73,42 @@ var Ideas = {
   },
 
   levelUp: function(id) {
-      id = parseInt(id);
-      var foundIdea = Ideas.findIdea(id);
-      if (foundIdea.quality === 'plausible') {
-        foundIdea.quality = 'genius';
-      }
-      if (foundIdea.quality === 'swill') {
-        foundIdea.quality = 'plausible';
-      }
-      this.store();
-    },
+    id = parseInt(id);
+    var foundIdea = Ideas.findIdea(id);
+    if (foundIdea.quality === 'plausible') {
+      foundIdea.quality = 'genius';
+    }
+    if (foundIdea.quality === 'swill') {
+      foundIdea.quality = 'plausible';
+    }
+    this.store();
+  },
+
   levelDown: function(id) {
-      id = parseInt(id);
-      var foundIdea = Ideas.findIdea(id);
-      if (foundIdea.quality === 'plausible') {
-        foundIdea.quality = 'swill';
-      }
-      if (foundIdea.quality === 'genius') {
-        foundIdea.quality = 'plausible';
-      }
-      this.store();
-    },
+    id = parseInt(id);
+    var foundIdea = Ideas.findIdea(id);
+    if (foundIdea.quality === 'plausible') {
+      foundIdea.quality = 'swill';
+    }
+    if (foundIdea.quality === 'genius') {
+      foundIdea.quality = 'plausible';
+    }
+    this.store();
+  },
+
+  titleEdit: function(id, newTitle) {
+    id = parseInt(id);
+    var idea = this.findIdea(id);
+    idea.title = newTitle;
+    this.store();
+  },
 
 	remove: function(id) {
 		this.allIdeas = this.allIdeas.filter(function(idea) {
 		  return idea.id !== id;
 		});
 		this.store();
-	},
+	}
 };
 
 //Have save button pull inputs
@@ -144,33 +152,37 @@ $searchInput.on('keyup', function() {
   });
 });
 
+$ideaList.on('focusout', '.idea-title', function() {
+  var id = $(this).parent().data('id');
+  var newTitle = $(this).text();
+  Ideas.titleEdit(id, newTitle);
+});
 
+$ideaList.on('keyup', '.idea-title', function(e) {
+  if(e.which == 13) {
+    $(this).focusout();
+  }
+});
 
-// TODO: Refactor these into less code.
+// $ideaList.on('keypress', '.idea-card', function(event){
+//     var keycode = (event.keyCode ? event.keyCode : event.which);
+//     if(keycode == '13'){
+//       var id = $(this).parent().parent().data('id');
+//       console.log('hey');
+//       // var id = Ideas.findIdea();
+//       // Ideas.titleEdit(id);
+//     }
+  // Ideas.render();
+// });
+
+// $ideaList.on('keyup', '.idea-title', function(){
+//   id = parseInt(id);
+//   var foundIdea = Ideas.findIdea(id);
+// });
+
 $(document).ready(function(){
 
 	Ideas.retrieve();
 	Ideas.render();
-
-
-	// These three event listeners change the button images when you hover over delete, upvote, and downvote buttons.
-
-	// $deleteButton.hover(function() {
-	// 	Idea.attr("src","images/delete-hover.svg");
-	// }, function() {
-	// 	Idea.attr("src","images/delete.svg");
-	// });
-	//
-	// $upvoteButton.hover(function() {
-	// 	$(this).attr("src","images/upvote-hover.svg");
-	// 		}, function() {
-	// 	$(this).attr("src","images/upvote.svg");
-	// });
-	//
-	// $downvoteButton.hover(function() {
-	// 	$(this).attr("src","images/downvote-hover.svg");
-	// 		}, function() {
-	// 	$(this).attr("src","images/downvote.svg");
-	// });
 
 });
