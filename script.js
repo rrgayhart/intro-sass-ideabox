@@ -100,7 +100,7 @@ var Ideas = {
 		  return idea.id !== id;
 		});
 		this.store();
-	}
+	},
 };
 
 //Have save button pull inputs
@@ -117,6 +117,8 @@ $ideaList.on('click', '.delete-button', function() {
 	Ideas.render();
 });
 
+
+//LevelUp button functionality
 $ideaList.on('click', '.upvote-button', function() {
   var id = $(this).parent().parent().data('id');
   Ideas.levelUp(id);
@@ -130,7 +132,19 @@ $ideaList.on('click', '.downvote-button', function() {
 });
 
 //Have search input filter results
-// $searchInput.on('keyup', Ideas.find());
+$searchInput.on('keyup', function() {
+  var filter = $(this).val();
+  $('.idea-card').each(function() {
+   if($(this).text().search(new RegExp(filter, 'i')) < 0) {
+     $(this).fadeOut();
+   }
+   else {
+     $(this).fadeIn();
+   }
+  });
+});
+
+
 
 // TODO: Refactor these into less code.
 $(document).ready(function(){
