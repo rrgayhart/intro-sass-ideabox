@@ -63,14 +63,14 @@ var Ideas = {
   },
 
   findIdea: function(id) {
-    id = parseInt(id);
+    id = parseInt(id, 10);
     return this.allIdeas.find(function(idea) {
       return idea.id === id;
     });
   },
 
   levelUp: function(id) {
-    id = parseInt(id);
+    id = parseInt(id, 10);
     var foundIdea = Ideas.findIdea(id);
     if (foundIdea.quality === 'plausible') {
       foundIdea.quality = 'genius';
@@ -82,7 +82,7 @@ var Ideas = {
   },
 
   levelDown: function(id) {
-    id = parseInt(id);
+    id = parseInt(id, 10);
     var foundIdea = Ideas.findIdea(id);
     if (foundIdea.quality === 'plausible') {
       foundIdea.quality = 'swill';
@@ -94,14 +94,14 @@ var Ideas = {
   },
 
   titleEdit: function(id, newTitle) {
-    id = parseInt(id);
+    id = parseInt(id, 10);
     var idea = this.findIdea(id);
     idea.title = newTitle;
     this.store();
   },
 
   bodyEdit: function(id, newBody) {
-    id = parseInt(id);
+    id = parseInt(id, 10);
     var idea = this.findIdea(id);
     idea.body = newBody;
     this.store();
@@ -147,12 +147,12 @@ $ideaList.on('click', '.downvote-button', function() {
 $searchInput.on('keyup', function() {
   var filter = $(this).val();
   $('.idea-card').each(function() {
-   if($(this).text().search(new RegExp(filter, 'i')) < 0) {
-     $(this).fadeOut();
-   }
-   else {
-     $(this).fadeIn();
-   }
+    if($(this).text().search(new RegExp(filter, 'i')) < 0) {
+      $(this).fadeOut();
+      }
+    else {
+      $(this).fadeIn();
+    }
   });
 });
 
