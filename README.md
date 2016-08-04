@@ -29,4 +29,4 @@ we used CSS flexbox to make sure everything was usable on mobile right from the 
 <p>jquery.js - required to have any of the $ functions to operate. 
 <p>reset.css - applies default styles - not necessary but a nice to have when running on older browsers.</p>
 <p>script.js - hold the bulk of the functionality. Comments are included in the file to help describe what the functions are doing. Note the 'store' and 'retrieve' methods for storing and pulling data out of localStorage.</p>
-<p>styles.css - these were carefully implemented to match the comp provided by someone else. This can be seen [here] (http://frontend.turing.io/projects/ideabox.html).</p>
+<p>styles.css - these were carefully implemented to match the comp provided by someone else. This can be seen (http://frontend.turing.io/projects/ideabox.html).</p>
