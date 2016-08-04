@@ -23,3 +23,10 @@ we used CSS flexbox to make sure everything was usable on mobile right from the 
 <p>This method ensures that anything the user does to those objects, from editing to deleting to changing the quality, always persist if they leave and come back to the application.<p>
 
 <p>Our final feature allows the user to search through ideas and find the one they want. We used a regular expression here to tranverse the DOM and easily show the correct information in sleek way.</p>
+
+<h2>Files & Responsibilities</h2>
+<p>index.html - a lean file that sets up the structure for the CSS and JS to act on. Ensure that scripts reference both the CSS and JS to have the entire app function.</p>
+<p>jquery.js - required to have any of the $ functions to operate. 
+<p>reset.css - applies default styles - not necessary but a nice to have when running on older browsers.</p>
+<p>script.js - hold the bulk of the functionality. Comments are included in the file to help describe what the functions are doing. Note the 'store' and 'retrieve' methods for storing and pulling data out of localStorage.</p>
+<p>styles.css - these were carefully implemented to match the comp provided by someone else. This can be seen [here] (http://frontend.turing.io/projects/ideabox.html).</p>
