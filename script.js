@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 //Variables
 var $saveButton = $('.save-button');
 var $titleInput = $('.title-input');
