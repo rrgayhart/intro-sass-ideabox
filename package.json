@@ -4,7 +4,9 @@
   "description": "Sass lesson based on original Ideabox project from Turing Students",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
