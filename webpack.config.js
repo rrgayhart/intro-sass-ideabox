@@ -13,7 +13,7 @@ module.exports = {
     loaders: [
       { test: /\.css$/, loader: "style!css" },
       { test: /\.scss$/, loader: "style!css!sass" },
-      {test: /\.svg$/, loader: 'svg-url-loader'}
+      { test: /\.svg$/, loader: 'svg-url-loader' }
     ]
   }
 }
