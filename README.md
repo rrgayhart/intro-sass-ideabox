@@ -16,6 +16,10 @@
 
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
+## Next Branch
+
+[Base Sass Setup](https://github.com/rrgayhart/intro-sass-ideabox/tree/base-sass-setup) adds and configures Sass and Webpack
+
 ## Development
 
 `npm install` to install all dependencies
