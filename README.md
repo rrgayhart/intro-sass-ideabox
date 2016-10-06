@@ -4,7 +4,7 @@
 
 ## Steps Gone Through - [Comparison Diff](https://github.com/rrgayhart/intro-sass-ideabox/compare/webpack)
 
-- [Basic Webpack Port](a4f95d4955281dd1b6b22347314e9f72e61beb80)
+- [Basic Webpack Port](commit/a4f95d4955281dd1b6b22347314e9f72e61beb80)
 - [Add a Dummy Unit Test](7da086026af2b950a06e7fbfa6755b224047fdf6)
 - [Require jQuery rather than globally include it](334311c6387a30de2c7ef03394a0b249651468c5)
 - [Add helper scripts](7e7a287cd5b893b31f5f55b8da440c6866775ae0)
