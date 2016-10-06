@@ -16,7 +16,7 @@
 
 Since there are svg images in your CSS files,I also installed a specific loader called [svg-url-loader](https://github.com/bhovhannes/svg-url-loader)
 
-`npm install —savesvg-url-loader`
+`npm install --save-dev svg-url-loader`
 
 - [Configured new loaders for webpack](https://github.com/rrgayhart/intro-sass-ideabox/commit/82ce2ca9bdf21a8f8d53d2576452a598f0c1d787)
 
