@@ -88,14 +88,14 @@ h1,
 }
 
 .save-button {
-  background-color: $save-button-background;
-  color: $save-button-text;
+  background-color: $button-background;
+  color: $button-text;
   height: 30px;
   width: 100px;
 }
 
 .save-button:hover {
-  background-color: $save-button-hover;
+  background-color: $button-hover;
 }
 
 .idea-card {

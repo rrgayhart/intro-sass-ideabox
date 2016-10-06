@@ -1,16 +1,28 @@
 /* Colors */
 
-$accent-color: #00A79D;
+$white: #FFF;
+$light-gray: #D1D3D4;
+$medium-gray: #939598;
+$medium-dark-gray: #6D6E71;
 
-$text-input-color: #D1D3D4;
+$woah-teal: #00A79D;
+$chill-teal: #045E55;
 
-$save-button-background: #00A79D;
-$save-button-text: #FFF;
-$save-button-hover: #045E55;
+/* Color Assignments */
 
-$card-border: #D1D3D4;
-$idea-title-text: #6D6E71;
-$idea-body-text: #939598;
+$accent-color: $woah-teal;
+$accent-color-hover: $chill-teal;
+$unfocused-content: $light-gray;
+
+$text-input-color: $unfocused-content;
+
+$button-background: $accent-color;
+$button-text: $white;
+$button-hover: $accent-color-hover;
+
+$card-border: $unfocused-content;
+$idea-title-text: $medium-dark-gray;
+$idea-body-text: $medium-gray;
 
 /* Fonts */
 
