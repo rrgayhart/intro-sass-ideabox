@@ -1,4 +1,3 @@
-require('../public/reset.scss');
 require('../public/styles.scss');
 
 var $ = require('jquery');
