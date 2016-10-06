@@ -1,26 +1,10 @@
-# Setting Up Sass
+# Sass Magic
 
-## Convert to Sass + Webpack!
+Import existing stylesheets using Sass
 
-Changed the names of the css files to end with `.scss`
+Create and use variables file for font and color
 
-Deleted the stylesheet links in html
+Split color definitions from assignment definitions
+  - BONUS: I refactored out multiple uses of the same colors this way
 
-Require in stylesheets in js file
-
-Installed the needed loaders
-
-- `npm install --save-dev node-sass style-loader css-loader sass-loader`
-
-Since there are svg images in your CSS files,I also installed a specific loader called [svg-url-loader](https://github.com/bhovhannes/svg-url-loader)
-
-- `npm install —savesvg-url-loader`
-
-Configured new loaders for webpack
-
-Ran `npm run build` to bundle assets and make sure it works
-
-## Resources
-
-* [Webpack Demystified Lesson](http://frontend.turing.io/lessons/webpack-demystified.html)
-* [sass-loader](https://docs.omniref.com/js/npm/sass-loader/0.4.2)
+Bundle and update readme
